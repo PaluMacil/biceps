@@ -85,7 +85,6 @@ int main(int argc, char **argv) {
 
         gpuErrchk(cudaMalloc(&arrForce_d, bytes));
         gpuErrchk(cudaMalloc(&arrDistance_d, bytes));
-        gpuErrchk(cudaMalloc(&arrAnswer_d, bytes));
 
         gpuErrchk(cudaMemcpy(arrForce_d, arrForce, bytes, cudaMemcpyHostToDevice));
         gpuErrchk(cudaMemcpy(arrDistance_d, arrDistance, bytes, cudaMemcpyHostToDevice));
