@@ -85,10 +85,10 @@ int main(int argc, char **argv) {
 
         gpuErrchk(cudaMalloc(&arrForce_d, bytes));
         gpuErrchk(cudaMalloc(&arrDistance_d, bytes));
+        gpuErrchk(cudaMalloc(&arrAnswer_d, bytes));
 
         gpuErrchk(cudaMemcpy(arrForce_d, arrForce, bytes, cudaMemcpyHostToDevice));
         gpuErrchk(cudaMemcpy(arrDistance_d, arrDistance, bytes, cudaMemcpyHostToDevice));
-        gpuErrchk(cudaMemcpy(arrAnswer_d, arrAnswer, bytes, cudaMemcpyHostToDevice));
 
         multMat<<<dimGrid, dimBlock>>>(n, arrForce_d, arrDistance_d, arrAnswer_d);
         gpuErrchk(cudaPeekAtLastError());
